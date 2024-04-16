@@ -1,7 +1,6 @@
-use std::ops::Sub;
+
 use std::thread;
 
-use rocket::http::hyper::request;
 use rocket::http::Status;
 use rocket::log;
 use rocket::serde::json::to_string;
@@ -90,5 +89,10 @@ impl NotificationService {
         let product_type_clone = String::from(product_type);
         return thread::spawn(move || self::unsubscribe_request(product_type_clone))
             .join().unwrap();
+    }
+
+    pub fn receive_notification<'a>(payload: Notification) -> Result<Notification> {
+        let subsciber_result: Notification = NotificationRepository::add(payload);
+        return Ok(subsciber_result);
     }
 }
