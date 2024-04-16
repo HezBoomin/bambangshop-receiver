@@ -61,12 +61,12 @@ You can install Postman via this website: https://www.postman.com/downloads/
 ## Mandatory Checklists (Subscriber)
 -   [ ] Clone https://gitlab.com/ichlaffterlalu/bambangshop-receiver to a new repository.
 -   **STAGE 1: Implement models and repositories**
-    -   [✔️ ] Commit: `Create Notification model struct.`
-    -   [ ✔️] Commit: `Create SubscriberRequest model struct.`
-    -   [ ] Commit: `Create Notification database and Notification repository struct skeleton.`
-    -   [ ] Commit: `Implement add function in Notification repository.`
-    -   [ ] Commit: `Implement list_all_as_string function in Notification repository.`
-    -   [ ] Write answers of your learning module's "Reflection Subscriber-1" questions in this README.
+    -   [✔️] Commit: `Create Notification model struct.`
+    -   [✔️] Commit: `Create SubscriberRequest model struct.`
+    -   [✔️] Commit: `Create Notification database and Notification repository struct skeleton.`
+    -   [✔️] Commit: `Implement add function in Notification repository.`
+    -   [✔️] Commit: `Implement list_all_as_string function in Notification repository.`
+    -   [✔️ ] Write answers of your learning module's "Reflection Subscriber-1" questions in this README.
 -   **STAGE 3: Implement services and controllers**
     -   [ ] Commit: `Create Notification service struct skeleton.`
     -   [ ] Commit: `Implement subscribe function in Notification service.`
@@ -85,6 +85,9 @@ This is the place for you to write reflections:
 ### Mandatory (Subscriber) Reflections
 
 #### Reflection Subscriber-1
+1. The reason we use RwLock instead of Mutex in this case is because RwLock allows for multiple readers or a single writer at a time, whereas Mutex only allows for a single thread to access the data at a time, whether it's for reading or writing.
+Using RwLock allows multiple threads to read from the Vec simultaneously, which is important for the list_all_as_string method since it doesn't modify the data. This improves performance by allowing concurrent access and avoids unnecessary blocking. On the other hand, if we were to use Mutex instead, only one thread would be able to access the Vec at a time, regardless of whether it's for reading or writing. This would introduce unnecessary contention and potentially degrade performance, especially in scenarios where there are more readers than writers.
 
+2. In Rust, static variables are immutable by default to ensure thread safety and prevent data races. Rust's ownership and borrowing rules guarantee that multiple threads cannot simultaneously mutate the same static variable. If Rust allowed mutable static variables, it would introduce the risk of data races and violate its safety guarantees. To work around this limitation, Rust provides synchronization primitives like RwLock to safely mutate static variables in a concurrent environment.
 
 #### Reflection Subscriber-2
