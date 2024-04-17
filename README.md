@@ -59,7 +59,7 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   Open another new terminal, edit `ROCKET_PORT` in `.env` to `8003`, then execute `cargo run`.
 
 ## Mandatory Checklists (Subscriber)
--   [ ] Clone https://gitlab.com/ichlaffterlalu/bambangshop-receiver to a new repository.
+-   [✔️] Clone https://gitlab.com/ichlaffterlalu/bambangshop-receiver to a new repository.
 -   **STAGE 1: Implement models and repositories**
     -   [✔️] Commit: `Create Notification model struct.`
     -   [✔️] Commit: `Create SubscriberRequest model struct.`
@@ -69,15 +69,15 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   [✔️] Write answers of your learning module's "Reflection Subscriber-1" questions in this README.
 -   **STAGE 3: Implement services and controllers**
     -   [✔️] Commit: `Create Notification service struct skeleton.`
-    -   [] Commit: `Implement subscribe function in Notification service.`
-    -   [ ] Commit: `Implement subscribe function in Notification controller.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification service.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification controller.`
-    -   [ ] Commit: `Implement receive_notification function in Notification service.`
-    -   [ ] Commit: `Implement receive function in Notification controller.`
-    -   [ ] Commit: `Implement list_messages function in Notification service.`
-    -   [ ] Commit: `Implement list function in Notification controller.`
-    -   [ ] Write answers of your learning module's "Reflection Subscriber-2" questions in this README.
+    -   [✔️] Commit: `Implement subscribe function in Notification service.`
+    -   [✔️] Commit: `Implement subscribe function in Notification controller.`
+    -   [✔️] Commit: `Implement unsubscribe function in Notification service.`
+    -   [✔️] Commit: `Implement unsubscribe function in Notification controller.`
+    -   [✔️] Commit: `Implement receive_notification function in Notification service.`
+    -   [✔️] Commit: `Implement receive function in Notification controller.`
+    -   [✔️] Commit: `Implement list_messages function in Notification service.`
+    -   [✔️] Commit: `Implement list function in Notification controller.`
+    -   [✔️] Write answers of your learning module's "Reflection Subscriber-2" questions in this README.
 
 ## Your Reflections
 This is the place for you to write reflections:
@@ -91,3 +91,8 @@ Using RwLock allows multiple threads to read from the Vec simultaneously, which 
 2. In Rust, static variables are immutable by default to ensure thread safety and prevent data races. Rust's ownership and borrowing rules guarantee that multiple threads cannot simultaneously mutate the same static variable. If Rust allowed mutable static variables, it would introduce the risk of data races and violate its safety guarantees. To work around this limitation, Rust provides synchronization primitives like RwLock to safely mutate static variables in a concurrent environment.
 
 #### Reflection Subscriber-2
+1. I haven't explored other thing such as lib.rs because I'm scared if i change anything it will mess up the project or resulted in different output
+
+2. The observer pattern make it easy to add more subscribers without modifying publisher. If we spawn more than one instance of Main app , it is also easy to add.
+
+3. No i haven't make any new test
